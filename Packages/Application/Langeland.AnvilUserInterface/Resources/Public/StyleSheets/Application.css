@@ -1,0 +1,79 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 100px; /* Margin bottom by footer height */
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px; /* Set the fixed height of the footer here */
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.container {
+    width: auto;
+    max-width: 450px;
+    padding: 0 15px;
+}
+
+main .container {
+    background-color: rgba(255, 255, 255, .85);
+    /*opacity: 0.7;*/
+    border-radius: 2.5rem !important;
+    padding-bottom: 1rem;
+}
+
+
+.GaugeMeter {
+    Position: Relative;
+    Text-Align: Center;
+    Overflow: Hidden;
+    Cursor: Default;
+}
+
+.GaugeMeter SPAN,
+.GaugeMeter B {
+    Margin: 0 23%;
+    Width: 54%;
+    Position: Absolute;
+    Text-align: Center;
+    Display: Inline-Block;
+    Color: RGBa(0, 0, 0, .8);
+    Font-Weight: 100;
+    Font-Family: "Open Sans", Arial;
+    Overflow: Hidden;
+    White-Space: NoWrap;
+    Text-Overflow: Ellipsis;
+}
+
+.GaugeMeter[data-style="Semi"] B {
+    Margin: 0 10%;
+    Width: 80%;
+}
+
+.GaugeMeter S,
+.GaugeMeter U {
+    Text-Decoration: None;
+    Font-Size: .5em;
+    Opacity: .5;
+}
+
+.GaugeMeter B {
+    Color: Black;
+    Font-Weight: 300;
+    Font-Size: .5em;
+    Opacity: .8;
+}

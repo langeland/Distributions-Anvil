@@ -1,0 +1,32 @@
+#                                                                        #
+# This file is part of the Langeland.AnvilUserInterface package.         #
+#                                                                        #
+
+privilegeTargets:
+
+  'Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
+
+    'Langeland.AnvilUserInterface:StandardController':
+      matcher: 'method(Langeland\AnvilUserInterface\Controller\StandardController->.*())'
+
+    'Langeland.AnvilUserInterface:BadgeController':
+      matcher: 'method(Langeland\AnvilUserInterface\Controller\BadgeController->.*())'
+
+
+
+#    'Acme.MyPackage:RestrictedController.adminAction':
+#      matcher: 'method(Acme\MyPackage\Controller\RestrictedController->adminAction())'
+#
+#    'Acme.MyPackage:editOwnPost':
+#      matcher: 'method(Acme\MyPackage\Controller\PostController->editAction(post.owner == current.userService.currentUser))'
+
+roles:
+  'Langeland.AnvilCore:User':
+    privileges:
+      -
+        privilegeTarget: 'Langeland.AnvilUserInterface:StandardController'
+        permission: GRANT
+      -
+        privilegeTarget: 'Langeland.AnvilUserInterface:BadgeController'
+        permission: GRANT
+

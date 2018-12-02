@@ -1,0 +1,22 @@
+#                                                                        #
+# This file is part of the Langeland.AnvilCore package.         #
+#                                                                        #
+
+
+
+roles:
+  'Langeland.AnvilCore:User':
+    privileges: []
+
+#    privileges:
+#      -
+#        privilegeTarget: 'Langeland.DomainWatch:StandardController.restrictedActions'
+#       # permission: GRANT
+#      -
+#        privilegeTarget: 'Langeland.DomainWatch:DomainController.restrictedActions'
+#        permission: GRANT
+
+
+
+
+

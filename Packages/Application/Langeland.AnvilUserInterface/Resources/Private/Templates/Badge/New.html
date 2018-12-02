@@ -1,0 +1,34 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Index view of Standard controller</f:section>
+
+<f:section name="Content">
+    <div class="container clearfix my-3">
+        <h1 class="text-center">Tørklæde mærket</h1>
+        <p>Tørklædemærket</p>
+        <p>For at tage Spejd365 skal spejderen gå med spejdertørklæde i et år.</p>
+        <h3>Hvornår skal du bære dit tørklæde:</h3>
+        <p>Spejdertørklædet skal altid bæres synligt, 365 ud af 400 dage – også til f.eks. barnedåb, eksamen, på arbejdet eller i skolen.
+            Tørklædet skal bæres rundt om halsen, og være bundet som et spejdertørklæde. Dette betyder, at man f.eks. ikke kan bruge sit tørklæde som hårbånd eller butterfly – medmindre man samtidigt også har et tørklæde på rundt om halsen.&lt;/p&gt;</p>
+        <h3>Hvornår behøver du ikke bære dit tørklæde:</h3>
+        <ul>
+            <li>Når du sover.</li>
+            <li>Når du er i bad eller er i vand (i svømmehallen, på stranden).</li>
+            <li>Hvis du er i en situation, hvor det påkræves, at du bærer en type påklædning eller uniform, som ikke tillader, at du har spejdertørklæde på. Fx i diverse sportsgrene, militæret eller som medarbejder i et supermarked.</li>
+            <li>Hvis der er en sikkerhedsrisiko ved at have tørklædet på.</li>
+            <li>Hvis du vælger at bruge 1 af dine i alt 35 bufferdage.</li>
+        </ul>
+
+        <f:form controller="Badge" action="create">
+
+            <div class="form-group">
+                <label class="col-form-label col-form-label-lg" for="startedAt">Start dato</label>
+                <f:form.textfield name="startedAt" class="form-control" id="startedAt" placeholder="Start dato" value="{startedAt -> f:format.date(format: 'd/m/Y')}" />
+            </div>
+
+
+            <f:form.submit value="Start" class="btn btn-primary btn-lg float-right" />
+        </f:form>
+
+    </div>
+</f:section>

@@ -1,0 +1,18 @@
+{
+    "description": "",
+    "type": "neos-package",
+    "name": "langeland/anviluserinterface",
+    "require": {
+        "neos/flow": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Langeland\\AnvilUserInterface\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Langeland.AnvilUserInterface"
+        }
+    }
+}

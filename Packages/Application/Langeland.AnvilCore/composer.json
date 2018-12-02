@@ -1,0 +1,18 @@
+{
+    "description": "",
+    "type": "neos-package",
+    "name": "langeland/anvilcore",
+    "require": {
+        "neos/flow": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Langeland\\AnvilCore\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Langeland.AnvilCore"
+        }
+    }
+}

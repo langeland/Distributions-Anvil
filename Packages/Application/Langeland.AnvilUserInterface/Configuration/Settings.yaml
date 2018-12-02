@@ -1,0 +1,13 @@
+Neos:
+  Flow:
+    security:
+      authentication:
+        providers:
+          'DefaultProvider':
+            provider: 'PersistedUsernamePasswordProvider'
+            entryPoint: 'WebRedirect'
+            entryPointOptions:
+              routeValues:
+                '@package': 'Langeland.AnvilUserInterface'
+                '@controller': 'User'
+                '@action': 'login'

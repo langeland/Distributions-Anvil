@@ -1,0 +1,33 @@
+<f:layout name="Default"/>
+
+<f:section name="Title">Index view of Standard controller</f:section>
+
+<f:section name="Content">
+    <div class="container clearfix my-3">
+        <p class="display-4 text-center">Du har:</p>
+
+
+        <div class="GaugeMeter mx-auto" id="GaugeMeter_1"
+             data-used="{badge.daysElapsed}"
+             data-total="{badge.daysElapsed + badge.daysRemaining}"
+             data-size="300"
+
+             data-theme="DarkBlue-LightBlue"
+
+             data-width="20"
+             data-style="Full"
+             data-stripe="4"
+
+             data-text="{badge.daysRemaining}"
+             data-showvalue=0
+        ></div>
+
+        <p class="display-4 text-center">dage tilbage</p>
+        <p>{user.displayName}</p>
+
+        <blockquote class="blockquote">
+            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+        </blockquote>
+    </div>
+</f:section>

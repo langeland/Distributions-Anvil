@@ -1,0 +1,31 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Index view of Standard controller</f:section>
+
+<f:section name="Content">
+    <div class="container clearfix my-3">
+        <h1 class="text-center">Opret bruger</h1>
+        <p>Opret bruger</p>
+
+        <f:form controller="User" action="create">
+
+            <div class="form-group">
+                <label class="col-form-label col-form-label-lg" for="username">Spejdernavn</label>
+                <f:form.textfield name="username" class="form-control" id="username" placeholder="Spejdernavn" />
+            </div>
+
+            <div class="form-group">
+                <label class="col-form-label col-form-label-lg" for="unit">Gruppenavn</label>
+                <f:form.select class="form-control" name="unit" options="{units}" optionValueField="code" optionLabelField="name" />
+            </div>
+
+            <div class="form-group">
+                <label class="col-form-label col-form-label-lg" for="password">Mester knob</label>
+                <f:form.select class="form-control" name="password" options="{toemmerstikket: 'Tømmerstikket', raabaandsknob: 'Råbåndsknob'}" />
+            </div>
+
+            <f:form.submit value="Opret" class="btn btn-primary btn-lg float-right" />
+        </f:form>
+
+    </div>
+</f:section>

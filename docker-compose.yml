@@ -1,0 +1,53 @@
+version: "3.6"
+
+services:
+
+  nginx:
+    image: nginx:1.13.12
+    environment:
+      VIRTUAL_HOST: anvil.docker
+      NGINX_WEBROOT: "/var/www/application/Web"
+      NGINX_PHP_HOST_AND_PORT: php:9000
+      NGINX_SERVERNAME: application-dev
+      FLOW_CONTEXT: "${FLOW_CONTEXT}"
+    labels:
+      - "traefik.backend=anvil"
+      - "traefik.frontend.rule=Host:anvil.anne.flab.dk"
+    volumes:
+      - .:/var/www/application
+      - ./Docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    env_file:
+      - .env
+    depends_on:
+      - php
+
+  php:
+    image: danmarksradio/webapi-php:7.2
+    volumes:
+      - .:/var/www/application
+    environment:
+      FLOW_CONTEXT: "${FLOW_CONTEXT}"
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+#      PHP_AVAILABLE_EXTENSIONS
+    env_file:
+      - .env
+    labels:
+      - "traefik.enable=false"
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./Docker/Data/mysql/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    labels:
+      - "traefik.enable=false"
+
+

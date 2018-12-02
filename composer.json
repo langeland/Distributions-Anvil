@@ -1,0 +1,31 @@
+{
+    "name": "langeland/distributions-anvil",
+    "description": "Flow Base application",
+    "license": "MIT",
+    "support": {
+        "email": "jon@klixbull.org"
+    },
+    "config": {
+        "vendor-dir": "Packages/Libraries",
+        "bin-dir": "bin"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/langeland/Langeland.Liquid"
+        }
+    ],
+    "require": {
+        "neos/flow": "~5.0.0",
+        "langeland/liquid": "dev-master"
+    },
+    "require-dev": {
+        "neos/kickstarter": "~5.0.0"
+    },
+    "scripts": {
+        "post-update-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
+        "post-install-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
+        "post-package-update": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
+        "post-package-install": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall"
+    }
+}

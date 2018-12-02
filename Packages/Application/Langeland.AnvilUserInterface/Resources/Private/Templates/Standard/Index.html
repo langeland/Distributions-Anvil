@@ -1,0 +1,18 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Index view of Standard controller</f:section>
+
+<f:section name="Content">
+    <div class="container clearfix my-3">
+        <f:security.ifAuthenticated>
+            <f:then>
+                <p>Velkommen</p>
+                <p>Du er logget ind og kan se dit forløb et andet sted... <f:link.action action="index" controller="Badge">LINK</f:link.action></p>
+            </f:then>
+            <f:else>
+                <p>Velkommen</p>
+                <p>Hvis du lige er sød at smutte over på lejerleder kontoret og sige at du er kommet... <f:link.action action="login" controller="User">LINK</f:link.action></p>
+            </f:else>
+        </f:security.ifAuthenticated>
+    </div>
+</f:section>
