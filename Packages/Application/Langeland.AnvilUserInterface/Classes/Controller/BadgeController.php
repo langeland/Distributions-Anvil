@@ -64,7 +64,7 @@ class BadgeController extends AbstractAnvilController
      * @param Badge $badge
      * @return void
      */
-    public function editAction(Badge $badge)
+    public function editAction(Badge $badge = null)
     {
         $this->view->assign('foos', array(
             'bar', 'baz'
@@ -75,11 +75,43 @@ class BadgeController extends AbstractAnvilController
      * @param Badge $badge
      * @return void
      */
-    public function updateAction(Badge $badge)
+    public function updateAction(Badge $badge = null)
     {
         $this->view->assign('foos', array(
             'bar', 'baz'
         ));
+    }
+
+    /**
+     * @param Badge|null $badge
+     * @param int $add
+     * @param int $delete
+     * @throws \Neos\Flow\Mvc\Exception\StopActionException
+     * @throws \Neos\Flow\Persistence\Exception\InvalidQueryException
+     * @throws \Neos\Flow\Persistence\Exception\IllegalObjectTypeException
+     */
+    public function modifySkipDaysAction(Badge $badge = null, int $add = null, int $delete = null)
+    {
+        $user = $this->userRepository->findOneActive();
+        if ($badge === null) {
+            $badge = $user->getBadges()->first();
+        }
+
+        $days = $badge->getAddedDays();
+
+        if ($add !== null && $delete === null) {
+            $badge->setAddedDays($days + 1);
+        } elseif ($add === null && $delete !== null) {
+            $badge->setAddedDays($days - 1);
+        } else {
+            $this->addFlashMessage('Invalid arguments');
+        }
+
+        $this->badgeRepository->update($badge);
+        $this->persistenceManager->persistAll();
+
+        $this->redirect('show');
+
     }
 
     /**

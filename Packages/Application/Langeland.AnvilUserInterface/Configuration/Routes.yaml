@@ -1,0 +1,23 @@
+
+
+
+##
+# Default route to map the first two URL segments to package and controller
+# optional third URL segment is mapped to action
+
+-
+  name: 'index'
+  uriPattern: ''
+  defaults:
+    '@controller': 'Standard'
+    '@action':     'index'
+    '@format':     'html'
+  appendExceedingArguments: true
+
+-
+  name: 'default'
+  uriPattern: '{@controller}(/{@action})'
+  defaults:
+    '@action':     'index'
+    '@format':     'html'
+  appendExceedingArguments: true

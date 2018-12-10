@@ -15,7 +15,6 @@ use Neos\Flow\Mvc\Controller\ActionController;
 class UserController extends AbstractAnvilController
 {
 
-
     /**
      * @Flow\Inject
      * @var UnitRepository
@@ -30,11 +29,18 @@ class UserController extends AbstractAnvilController
 
 
     /**
+     * @Flow\InjectConfiguration(path="Authentication.passwords")
+     * @var array
+     */
+    protected $passwords;
+
+    /**
      * @return void
      */
     public function newAction()
     {
         $this->view->assign('units', $this->unitRepository->findAll());
+        $this->view->assign('passwords', $this->passwords);
     }
 
     /**
@@ -53,11 +59,35 @@ class UserController extends AbstractAnvilController
         $this->redirect('login', 'User');
     }
 
+    public function generateAnvilTokenAction($regenerate = false)
+    {
+
+        $user = $this->userRepository->findOneActive();
+
+
+        $anvilKey = $user->getUnit()->getCode() . '_' . $user->getDisplayName();
+
+        $loginUrl = $this
+            ->uriBuilder
+            ->reset()
+            ->setCreateAbsoluteUri(true)
+            ->uriFor(
+                'index',
+                ['anvilKey' => $anvilKey],
+                'Standard'
+            );
+
+        $this->view->assign('directLoginUrl', $loginUrl);
+
+
+    }
+
     /**
      * @return void
      */
     public function loginAction()
     {
         $this->view->assign('units', $this->unitRepository->findAll());
+        $this->view->assign('passwords', $this->passwords);
     }
 }

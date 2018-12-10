@@ -14,9 +14,40 @@
     <body>
         <f:flashMessages class="flashmessages" />
 
-        <nav class="navbar navbar-light bg-light">
-            <span class="navbar-brand mb-0 h1">Anvil</span>
+
+        <nav class="navbar navbar-light bg-light" style="background-color: transparent">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbars">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <f:link.action class="nav-link" action="about" controller="Standard">Om Anvil</f:link.action>
+                    </li>
+
+                    <f:security.ifAuthenticated>
+                        <f:then>
+                            <li class="nav-item">
+                                <f:link.action class="nav-link" action="index" controller="Badge">Mit mærke</f:link.action>
+                            </li>
+                            <li class="nav-item">
+                                <f:link.action class="nav-link" action="generateAnvilToken" controller="User">Som som app</f:link.action>
+                            </li>
+                            <li class="nav-item">
+                                <f:link.action class="nav-link" action="logout" controller="Authentication">Logud<span class="float-right">(Logget ind som: {user.displayName})</span></f:link.action>
+                            </li>
+                        </f:then>
+                        <f:else>
+                            <li class="nav-item">
+                                <f:link.action class="nav-link" action="new" controller="User">Opret bruger</f:link.action>
+                            </li>
+                        </f:else>
+                    </f:security.ifAuthenticated>
+                </ul>
+            </div>
         </nav>
+
 
         <main role="main" class="my-5">
             <f:render section="Content" />

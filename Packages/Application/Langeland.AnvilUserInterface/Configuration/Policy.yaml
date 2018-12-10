@@ -6,8 +6,8 @@ privilegeTargets:
 
   'Neos\Flow\Security\Authorization\Privilege\Method\MethodPrivilege':
 
-    'Langeland.AnvilUserInterface:StandardController':
-      matcher: 'method(Langeland\AnvilUserInterface\Controller\StandardController->.*())'
+#    'Langeland.AnvilUserInterface:StandardController':
+#      matcher: 'method(Langeland\AnvilUserInterface\Controller\StandardController->.*())'
 
     'Langeland.AnvilUserInterface:BadgeController':
       matcher: 'method(Langeland\AnvilUserInterface\Controller\BadgeController->.*())'
@@ -23,9 +23,9 @@ privilegeTargets:
 roles:
   'Langeland.AnvilCore:User':
     privileges:
-      -
-        privilegeTarget: 'Langeland.AnvilUserInterface:StandardController'
-        permission: GRANT
+#      -
+#        privilegeTarget: 'Langeland.AnvilUserInterface:StandardController'
+#        permission: GRANT
       -
         privilegeTarget: 'Langeland.AnvilUserInterface:BadgeController'
         permission: GRANT

@@ -3,11 +3,30 @@ Neos:
     security:
       authentication:
         providers:
+          'AnvilTokenProvider':
+            provider: 'Langeland\AnvilUserInterface\Security\AnvilKeyProvider'
+            token: 'Langeland\AnvilUserInterface\Security\AnvilKeyToken'
           'DefaultProvider':
-            provider: 'PersistedUsernamePasswordProvider'
+            provider: 'Langeland\AnvilUserInterface\Security\PersistedUsernamePasswordProvider'
+            token: 'Langeland\AnvilUserInterface\Security\UsernamePassword'
             entryPoint: 'WebRedirect'
             entryPointOptions:
               routeValues:
                 '@package': 'Langeland.AnvilUserInterface'
                 '@controller': 'User'
                 '@action': 'login'
+
+Langeland:
+  AnvilUserInterface:
+    Authentication:
+      passwords:
+        toemmerstikket: 'Tømmerstikket'
+        raabaandsknob: 'Råbåndsknob'
+        dobbelt_halvstik: 'Dobbelt halvstik'
+        dobbelt_halvstik_om_egen_part: 'Dobbelt halvstik om egen part'
+        paelestik: 'Pælestik'
+        kvaelerstikket: 'Kvælerstikket'
+        flagknob: 'Flagknob'
+        sommerfugleknob: 'Sommerfugleknob'
+        dobbelt_ottetalsknob: 'Dobbelt ottetalsknob'
+        dobbelt_flagknob: 'Dobbelt flagknob'

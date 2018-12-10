@@ -1,4 +1,5 @@
 <?php
+
 namespace Langeland\AnvilUserInterface\Controller;
 
 /*
@@ -13,13 +14,19 @@ class StandardController extends ActionController
 
     /**
      * @return void
+     * @throws \Neos\Flow\Mvc\Exception\StopActionException
      */
     public function indexAction()
     {
-        $this->view->assign('foos', array(
-            'bar', 'baz'
-        ));
+        $this->redirect('index', 'Badge');
     }
 
+    /**
+     * @return void
+     */
+    public function aboutAction()
+    {
+
+    }
 
 }

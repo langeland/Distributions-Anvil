@@ -23,11 +23,20 @@
         ></div>
 
         <p class="display-4 text-center">dage tilbage</p>
-        <p>{user.displayName}</p>
 
         <blockquote class="blockquote">
             <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
             <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
         </blockquote>
+
+        <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group" role="group" aria-label="First group">
+                <f:link.action class="btn btn-secondary" action="modifySkipDays" arguments="{'add':1}" controller="Badge">Tilføj fridag</f:link.action>
+            </div>
+            <div class="btn-group" role="group" aria-label="First group">
+                <f:link.action class="btn btn-secondary" action="edit" controller="Badge">Rediger</f:link.action>
+            </div>
+        </div>
+
     </div>
 </f:section>

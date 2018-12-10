@@ -9,19 +9,14 @@
         <p>Hvis allerrede har en bruger</p>
 
         <f:form controller="Authentication" action="authenticate">
-            <f:comment>
 
-            <div class="form-group">
-                <label class="col-form-label col-form-label-lg" for="username">Spejdernavn</label>
-                <input type="text" class="form-control" id="username" placeholder="Spejdernavn">
-            </div>
+
 
             <div class="form-group">
                 <label class="col-form-label col-form-label-lg" for="unit">Gruppenavn</label>
-                <f:form.select class="form-control" name="unit" options="{units}" optionValueField="code" optionLabelField="name" />
+                <f:form.select class="form-control" name="__authentication[Neos][Flow][Security][Authentication][Token][UsernamePassword][unit]" options="{units}" optionValueField="code" optionLabelField="name" />
             </div>
 
-            </f:comment>
 
             <div class="form-group">
                 <label class="col-form-label col-form-label-lg" for="f_username">Real username</label>
@@ -31,7 +26,7 @@
 
             <div class="form-group">
                 <label class="col-form-label col-form-label-lg" for="password">Mester knob</label>
-                <f:form.select class="form-control" name="__authentication[Neos][Flow][Security][Authentication][Token][UsernamePassword][password]" id="password" options="{toemmerstikket: 'Tømmerstikket', raabaandsknob: 'Råbåndsknob'}" />
+                <f:form.select class="form-control" name="__authentication[Neos][Flow][Security][Authentication][Token][UsernamePassword][password]" id="password" options="{passwords}" />
             </div>
 
 
@@ -41,7 +36,7 @@
 
     <div class="container clearfix mb-3">
         <h1 class="text-center">Ingen bruger endnu ??</h1>
-        <p>HDet er da ikke noget problem.</p>
+        <p>Det er da ikke noget problem.</p>
         <f:link.action action="new" class="btn btn-success btn-lg float-right" tabindex="-1" additionalAttributes="{'role':'button'}" >Opret bruger</f:link.action>
     </div>
 
