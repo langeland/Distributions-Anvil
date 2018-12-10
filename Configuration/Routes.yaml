@@ -1,0 +1,13 @@
+##
+# Anvil subroutes
+#
+
+- name: 'Anvil User Interface'
+  uriPattern: 'ui/<AnvilUserInterfaceSubroutes>'
+  defaults:
+    '@package': 'Langeland.AnvilUserInterface'
+    '@format': 'html'
+  subRoutes:
+    'AnvilUserInterfaceSubroutes':
+      package: 'Langeland.AnvilUserInterface'
+
