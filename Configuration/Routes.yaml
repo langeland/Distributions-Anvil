@@ -11,3 +11,12 @@
     'AnvilUserInterfaceSubroutes':
       package: 'Langeland.AnvilUserInterface'
 
+-
+  name: 'index'
+  uriPattern: ''
+  defaults:
+    '@package': 'Langeland.AnvilUserInterface'
+    '@controller': 'Standard'
+    '@action':     'index'
+    '@format':     'html'
+  appendExceedingArguments: true

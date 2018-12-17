@@ -6,6 +6,7 @@ namespace Langeland\AnvilCore\Domain\Repository;
  */
 
 use Neos\Flow\Annotations as Flow;
+use Neos\Flow\Persistence\QueryInterface;
 use Neos\Flow\Persistence\Repository;
 
 /**
@@ -14,5 +15,11 @@ use Neos\Flow\Persistence\Repository;
 class UnitRepository extends Repository
 {
 
-    // add customized methods here
+    /**
+     * @var array
+     */
+    protected $defaultOrderings = [
+        'name' => QueryInterface::ORDER_ASCENDING
+    ];
+
 }
